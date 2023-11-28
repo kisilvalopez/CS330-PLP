@@ -79,3 +79,31 @@ Other restrictions to be aware of:
 - Attempting to access elements beyond the bounds of an array or vector can lead to undefined behavior. 
 - Compatibility with compilers may differ, keep in mind that there are compiler-specific behaviors and standard that may change how code behaves based on different compilers. 
 
+***
+## Loops in C++
+While Loop
+- While loops continue as long as the specified condition is true. Initialization and update steps are coded outside of the loop
+```
+int i = 0;
+while (i < 5){
+++i;
+}
+
+```
+For Loop
+- For loops will continue to execute as long as the condition is true.
+```
+for (int i = 0; i < 5; ++i) {
+   	 // Code to be executed in each iteration
+}
+
+```
+do-while loop
+- The do-while loop is similar to the while loop but it makes sure that the loop body is executed at least once before checking the loop condition
+```
+do{
+//insert the code that you desire to be executed for each iteration
+//update the condition
+} while(condition);
+
+```
