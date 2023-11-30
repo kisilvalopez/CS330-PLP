@@ -1,4 +1,45 @@
 # C++ Programming Language
+Author: Kimberly Silva-Lopez
+
+## History
+Bjarne Stroustrup created the object-oriented programming language C++ in 1979 at Bell Laboratories as an addition to the C language. Stroustrup started working on C++ in 1982 as a replacement for C with Classes. It had additional features, including operator overloading, references, constants, virtual functions, and function names. The main applications for the programming language C++ include system programming, game development, and application software development
+
+## C++ Installation 
+### IDE Installation
+The programming IDE I have chosen to install C++ on is Virtual Studio Code. To download, click [here](https://code.visualstudio.com/download)
+
+### Setting Up C++ In Visual Studio Code on Windows 11
+1. We first need to download the MinGW C++ compiler for Windows 11. Here is an [installation link.](https://techdecodetutorials.com/downloads/mingw.exe)
+2. Open your downloads folder and double-click to begin the installation process
+3. Choose the extraction location of the C++ compiler by typing "C:\\" and click extract.
+4. Now we have to set up our environment variables:
+   - Copy the location of the bin folder from the MinGW directory, it should say "C:\MinGw\bin".
+   - In your Windows search bar, type 'Environment Variables' and press enter.
+   - Click on the 'Environment Variables' button
+   - Select 'Path' variable and click 'edit'
+   - Click 'New' and paste: C:\MinGw\bin
+   - Press 'OK'
+5. Now we have to verify if the compiler is working:
+   - Open a Windows Command Prompt
+   - In the command prompt, type 'g++ --version' and press enter to see the version of MinGW g++.
+6. Install C++ extensions in VS Code
+   - Open up Visual Studio Code, click on the extensions button on the side bar, type C++ and select the first option from Microsoft, and install.
+   - Now search 'Code Runner' in the extensions search bar and install the option from Jun Han
+
+## Hello, World! 
+Create a new file in Visual Studio Code and save it as HelloWorld.cpp
+Type this code into your file.
+```
+#include<iostream>
+int main() {
+    cout << "Hello World!";
+    return 0;
+}
+//this is your first C++ program, use '//' for single line comments
+/*use this syntax to comment
+multiple line comments*/
+```
+To run your program, press: Ctrl + Alt + N
 
 ## Naming Requirements and Naming Conventions
 C++ uses these valid characters for naming variables: 
