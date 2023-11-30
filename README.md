@@ -42,16 +42,104 @@ multiple line comments*/
 To run your program, press: Ctrl + Alt + N
 
 ## Naming Requirements and Naming Conventions
-C++ uses these valid characters for naming variables: 
-1. uppercase letters
-2. lowercase letters
-3. digits
-4. underscores
+Common naming conventions: 
+- Camel Case
+- Snake Case
+- Underscores
 
-Variable names can't be the same as C++ reserved keywords and C++ enforces case sensitivity, meaning that 'myVar' and 'myvar' would be treated as different variables.
+C++ uses these valid characters for naming variables: 
+- uppercase letters
+- lowercase letters
+- digits
+- underscores
+
+Case Sensitivity: 
+- ‘myVar’ and ‘myvar’ would be treated as different variables
+
+Keywords: 
+- Variable names can’t be the same as C++ reserved keywords
+
+Naming conventions are not enforced by the compiler more so, they are defined by community standards. Compilers can give warnings if a variable isn’t yet initialized, but that is not related to naming convention. 
+
+Although naming conventions is not enforced, it is good practice to follow established conventions for consistency and readability. 
 
 ## Keywords
 This is also known as reserved words, there is a total count of 95 reserved words. They’re always written in short lowercase letters. (for example, void, int, public, etc.)
+
+| asm  | double | new  | switch |
+| ------------- | ------------- | ------------- | ------------- |
+| auto  | else  | operator  | template  |
+| break  | enum  | private  | this  |
+| case  | extern  | protected  | throw  |
+| catch  | float  | public  | try  |
+| char  | for  | register  | typedef  |
+| class  | friend  | return  | union  |
+| const  | goto  | short  | unsigned  |
+| continue  | if  | signed  | virtual  |
+| default  | inline  | sizeof  | void  |
+| delete  | int  | static  | volatile  |
+| do  | long  | struct  | while  |
+
+## Variable Declaration For Common Data Types
+```
+#include <string>
+#include <iostream>
+#include <list>
+#include <map>
+using namespace std;
+
+int main(){
+    //int
+    int x = 5;
+
+    //string
+    string testString = "This is a string.";
+    cout << testString << endl;
+
+    //floating-point number
+    float number = 2.5;
+    cout << "The floating number value is: " << number << endl;
+
+    //boolean
+    //note: the numeric value of true is 1 and the numeric value of false is 0 
+    int x1 = 2, x2 = 4;
+    bool num1, num2;
+    num1 = x1 == x2;
+    num2 = x1 < x2;
+
+    cout << "Bool num1 is: " << num1 << endl;
+    cout << "Bool num2 is: " << num2 << endl;
+
+    //arrays
+    //to declare an array you must specify the data type and the size of the array
+    //arrays are zero-indexed, meaning the first element will use index 0, and then we increment by 1
+    int array[2];
+    array[0] = 5;
+    int arrayNum = array[0];
+    cout << "Our array value is: " << arrayNum << endl;
+
+    //lists
+    //lists are part of the C++ library, you can utilize this by adding '#include <list>' in the header
+    list<int> nameList{1,2,3,4,5};
+    for (auto i: nameList) {
+        cout << i << ' ';
+    }
+
+    //dictionary
+    //'maps' work just like dictionaries, they work like a container that stores values which have a unique key.
+    //Each value within this container has a special key.
+    //to use maps, you must add '#include <map>' in your header.
+    
+    //creating a map
+    map<string, int> mapExample;
+    mapExample["One"] = 1;
+    mapExample["Two"] = 2;
+    mapExample["Three"] = 3;
+
+    //examples and further information: https://favtutor.com/blogs/cpp-dictionary
+    return 0;
+}
+```
 
 ## Statically or Dynamically typed?
 C++ is a statically typed language. Variable types are determined at compile time, which means that variables must explicitly be declared when being defined. Mismatch errors will be caught by the compiler, which helps ensure type safety and better execution in C++ programs.
@@ -125,7 +213,7 @@ Other restrictions to be aware of:
 
 ***
 ## Loops in C++
-While Loop
+### While Loop
 - While loops continue as long as the specified condition is true. Initialization and update steps are coded outside of the loop
 ```
 int i = 0;
@@ -134,7 +222,24 @@ while (i < 5){
 }
 
 ```
-For Loop
+Here is an example of a while loop that will print out "Hello World!"
+```
+#include <iostream>
+
+int main(){
+    //we initialize our expression
+    int x = 1;
+    //create our while loop and test the expression
+    while (x < 5) {
+        cout << "Hello World!\n";
+        x++;
+
+    }
+    return x;
+}
+```
+
+### For Loop
 - For loops will continue to execute as long as the condition is true.
 ```
 for (int i = 0; i < 5; ++i) {
@@ -142,7 +247,21 @@ for (int i = 0; i < 5; ++i) {
 }
 
 ```
-do-while loop
+
+Here is an example of a for loop that will repeat a condition
+```
+#include <iostream>
+
+int main(){
+    int x;
+    //blank expression so that it runs as an infinite loop
+    for (;;){
+        cout << "Hello World Forever!\n";
+    }
+}
+```
+
+### do-while loop
 - The do-while loop is similar to the while loop but it makes sure that the loop body is executed at least once before checking the loop condition
 ```
 do{
@@ -151,6 +270,23 @@ do{
 } while(condition);
 
 ```
+Here is an example of a do-while loop that will print out "Hello World!"
+```
+#include <iostream>
+
+int main() {
+    //initialize our expressions
+    int x = 1;
+    do{
+        cout << "Hello World!\n";
+        x++;
+    //as long as x is less than 5, we will see that the output is "Hello World" x 4
+    } while (x < 5);
+
+    return 0;
+}
+```
+
 
 ## Syntax for Declaring Functions
 Function declaration tells the compiler about a group of statements within a function. It tell the compiler the function name, what it returns, and any parameters that are within that function. 
@@ -166,6 +302,23 @@ There are no rules in C++ about function placement. C++ allows a function to be 
 
 ## Recursive Functions
 C++ does support recursive functions. A recursive function is a function that calls itself repeatedly until a certain condition is met.
+
+```
+int factorial(int n){
+    //base case: factorial of 0 is 1
+    if (n ==0 || n ==1) {
+        return 1;
+    } else {
+        return n * factorial(n - 1); 
+    }
+}
+
+int main(){
+    int num = 5; 
+    cout << "Factorial of " << num << " is: " << factorial(num) << endl;
+    return 0;
+}
+```
 
 ## Multiple Parameters and Data Types
 Functions in C++ can accept multiple parameters. You can define parameters as char, int, double, or other data types. Because you can declare each parameter independently, you don’t necessarily need to use the same data type for all but they must be specified.
@@ -198,6 +351,37 @@ References in C++ is used when you pass a variable by reference in a function to
 **Pass by value**
 
 The function receives a copy of the variable when a variable is passed to a function in C++. Any changes that are made to the parameter inside of the function will not change the original value outside of the function.
+
+Here we have a function that tests a pass-by-value and pass-by-reference function
+```
+#include <iostream>
+
+//create our pass-by-value function
+void passByVal(int x){
+    //using this function will mean that the changes inside the function won't affect the original value
+    x = 10;
+}
+
+void passByRef(int &y){
+    //changes within the function will directly affect the original value 
+    y = 20;
+}
+
+int main(){
+    int val1 = 2;
+    int val2 = 4;
+    //call your functions
+    cout << "Value before passByVal: " << val1 << endl;
+    passByVal(val1);
+    cout << "Value after passByVal: " << val1 << endl;
+    
+    cout << "Value before passByRef: " << val2 << endl;
+    passByRef(val2);
+    cout << "Value after passByRef: " << val2 << endl;
+
+    return 0;
+}
+```
 
 ## Storing Arguments, Parameters, and Local Variables
 Arguments
@@ -289,6 +473,26 @@ if (condition){
 	//code that is execute if the condition is true 
 }
 ```
+Here is an example of a one-condition 'if' statement 
+```
+#include <iostream>
+
+int main(){
+    //declares an integer variable
+    int num;
+    //asks user input for an integer
+    cout << "Enter an integer: ";
+    cin >> num;
+    //if/else condition, as long as the number inputted is divisible by 2, it is an even number
+    if (num % 2 == 0){
+        cout << num << " is even" << endl;
+    } else{
+        cout << num << " is odd" << endl;
+    }
+
+    return 0;
+}
+```
 
 C++ has else statements that can be executed if the condition is false:
 ```
@@ -296,6 +500,27 @@ if (condition){
 	//code that is executed if the condition is true
 } else {
 	//code that is executed if the condition is false
+}
+```
+Here is an example of a multi-condition if/else statement
+```
+#include <iostream>
+
+int main(){
+    int x, y;
+    cout << "Enter a value for x: " << endl;
+    cin >> x;
+
+    cout << "Enter a value for y: " << endl;
+    cin >> y;
+
+    //our multi condition if/else statement
+    if(x > 0 && y < 5){
+        cout << "Both conditions are met, x is greater than 0 and y is less than 5." << endl;
+    }else{
+        cout << "At least one condition is false." << endl;
+    }
+    return 0;
 }
 ```
 
@@ -307,6 +532,26 @@ if (condition1){
 	//code that is executed if condition1 is false and condition2 is true
 } else{
  	// code that is executed if neither condition1 and condition2 is true
+}
+```
+Here is an example of an if/elif/else statement
+```
+#include <iostream>
+
+int main(){
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+
+    if (num > 0){
+        cout << "This number is a positive number." << endl;
+    }else if(num < 0){
+        cout << "This number is negative." << endl;
+    } else{
+        cout << "This number is 0." << endl;
+    }
+    return 0;
+    
 }
 ```
 
@@ -321,6 +566,38 @@ switch (expression){
 		break;
 	default: 
 		//code executed if none of the expressions match the case
+}
+```
+Here is a calculator program that uses switch case statements
+```
+#include <iostream>
+
+int main(){
+    int x, y;
+    char oper;
+    cout << "What operator would you like (+, -, *, /): " << endl;
+    cin >> oper;
+
+    cout << "Enter a number for x: " << endl;
+    cin >> x;
+    cout << "Enter a number for y: " << endl;
+    cin >> y; 
+
+    switch (oper){
+        case '+':
+            cout << x << " + " << y << " = " << x + y;
+            break;
+        case '-':
+            cout << x << " - " << y << " = " << x - y;
+            break;
+        case '*':
+            cout << x << " * " << y << " = " << x * y;
+            break;
+        case '/':
+            cout << x << " / " << y << " = " << x / y;
+            break;
+    }
+    return 0;
 }
 ```
 ## How Does C++ Delimit Code Blocks
