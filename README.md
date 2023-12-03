@@ -300,6 +300,24 @@ return_type function_name(parameters){
 ## Function Placement Rules
 There are no rules in C++ about function placement. C++ allows a function to be placed anywhere in the code file and the order in which these functions appear won’t necessarily determine how each function is executed. Although it’s important to define a function before they are called so that you don’t receive any compiler warnings and the compiler knows about the functions before executing them. 
 
+### Function that multiplies two values
+```
+int multiply(int a, int b){
+    return a * b;
+}
+
+int main(){
+    int a, b, total;
+    cout << "Enter two numbers: ";
+    //stores num1 and num2
+    cin >> a >> b;
+    //multiplication process and stores the result in total
+    total = multiply(a,b);
+    cout << "Total: " << total;
+    return 0;
+}
+```
+
 ## Recursive Functions
 C++ does support recursive functions. A recursive function is a function that calls itself repeatedly until a certain condition is met.
 
@@ -607,6 +625,21 @@ C++ uses curly braces {} to code block under each condition, typically each cond
 ## Short Circuit Evaluation
 
 Short-circuit evaluation is a behavior in which the second part of a logical expression is not evaluated if the result of the logical expression can be determined by the first part. Short circuiting in C++ occurs when a logical expression evaluates ‘&&’ (AND) and ‘||’ (OR) logical operators.
+```
+#include <iostream>
+
+int main(){
+    int x = 5;
+    int y = 10;
+    //short-circuit logic statement with '&&' operators
+    if (x > 0 && y/ x > 2){
+        cout << "Both conditions are true." << endl;
+    } else{
+        cout << "At least one condition is false." << endl;
+    }
+    return 0;
+}
+```
 
 ## The 'Dangling Else' Problem
 The “dangling else” problem is a potential ambiguity in programming that uses multiple ‘if’-’else’ statements. It’s when a programmer loses track of code indentation and makes it unclear where an else part matches with the if statement
@@ -626,6 +659,50 @@ Variables that are declared within loops and functions both have block scope whi
 C++ is an object-oriented programming language. Objects are instances of classes or structs and they’re used to model and manipulate data and perform operations. 
 
 The ‘class’ keyword is used to define a class with variables and member functions. You can also use the ‘struct’ keyword which, similarly to ‘class’, has a public member variable by default. The difference between ‘class’ and ‘struct’ is that with ‘struct’ the variables are public by default and with ‘class’ they’re private.
+
+Here is an example code using classes, objects, and inheritance:
+
+```
+#include <iostream>
+#include <string>
+using namespace std;
+
+//PLP5 create an object
+class Simmons{
+    //give object class attributes 
+    //access specifier
+public: 
+    //data members
+    //our variable, a string 'stormy'
+    std::string stormy;
+    //our function that will print out our sentence
+    void printname(){ cout << "Stormy is: " << stormy << endl; }
+};
+
+class SimmonsInheritance: public Simmons{
+public:
+    //extra data member
+    std::string extraInfo;
+    //and extra member function
+    void printExtraInfo(){
+        cout << "Is Stormy Simmon's mascot? " << extraInfo << endl;
+    }
+};
+
+int main(){
+    //creating our object within main that will inherit from our first object
+    SimmonsInheritance object1;
+
+    //object that is instantiated and modified that we're giving to our functions
+    object1.extraInfo = "Yes!!!!! ";
+    object1.stormy = "a Shark!";
+
+    //calling our functions
+    object1.printExtraInfo();
+    object1.printname();
+    return 0;
+}
+```
 
 ## Naming Conventions For Objects
 
@@ -703,7 +780,31 @@ protected:
     // protected members
 };
 ```
+## References
 
+“C Loops.” GeeksforGeeks, GeeksforGeeks, 13 Jan. 2017, www.geeksforgeeks.org/cpp-loops/
+
+
+“Short Circuiting in c and Linux.” GeeksforGeeks, GeeksforGeeks, 8 July 2020, www.geeksforgeeks.org/short-circuiting-in-c-and-linux/
+
+
+‌“C++ Switch...Case Statement (with Examples).” Programiz.com, 2015, www.programiz.com/cpp-programming/switch-case. 
+‌
+
+“C++ Switch.” W3schools.com, 2023, www.w3schools.com/cpp/cpp_switch.asp
+
+
+“Dangling Else Ambiguity.” GeeksforGeeks, GeeksforGeeks, 24 Dec. 2021, www.geeksforgeeks.org/dangling-else-ambiguity/
+
+
+“How to Split a String in c c Python and Java.” GeeksforGeeks, GeeksforGeeks, 4 Feb. 2016, www.geeksforgeeks.org/how-to-split-a-string-in-cc-python-and-java/
+
+‌
+
+
+
+‌
+‌
 
 
 
